@@ -1,11 +1,14 @@
 # ~ Deep Learning ~
 Feed Forward MLP Library with Matlab
 
+* `example.m` has example of fitting a 10 degree polynomial
+* see `main.m` for more practical example (data not included)
+
 ### Notes
 * requires Matlab R2016b or later
 * also Matlab sux
 
-### Coding Matlab in a text editor and running in a terminal shell
+### How to write Matlab code in a text editor and run in a terminal shell
 
 Add these lines to your `.bash_profile` or `.zshrc`:
 ```

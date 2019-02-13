@@ -1,13 +1,11 @@
-clear all; clc;
-addpath('./nn/');
-
+clear all; clc; addpath('./nn/'); addpath('./util/');
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%% SETTINGS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 dataset_name = 'Spam-Dataset';
-num_nodes = 10;
-activation_type = 'relu';
+num_nodes = 25;
+activation_type = 'sigmoid';
 learning_rate = 0.1;
 num_epochs = 8000;
 print_frequency = 500;
@@ -23,12 +21,9 @@ y_test = Util.load_data('y_test', dataset_name);
 y_train = (y_train+1)/2;
 y_test = (y_test+1)/2;
 
-% load weight initializations
-inits = Util.load_weight_initializations(activation_type, num_nodes, dataset_name);
-
 % create layers
 layers = cell(3,1);
-layers{1} = LinearLayer(size(X_train,2), num_nodes, inits('w1'),inits('b1'));
+layers{1} = LinearLayer(size(X_train,2), num_nodes);
 if isequal(activation_type, 'sigmoid')
     layers{2} = ActivationLayer.make_sigmoid_activation_layer();
 elseif isequal(activation_type, 'relu')
@@ -36,7 +31,7 @@ elseif isequal(activation_type, 'relu')
 elseif isequal(activation_type, 'tanh')
     layers{2} = ActivationLayer.make_tanh_activation_layer();
 end
-layers{3} = LinearLayer(num_nodes, 1, inits('w2'), inits('b2'));
+layers{3} = LinearLayer(num_nodes, 1);
 
 % create MLP
 nn = NN(layers, learning_rate);
