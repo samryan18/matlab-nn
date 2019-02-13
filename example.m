@@ -4,19 +4,19 @@ clear all; clc; addpath('./nn/'); addpath('./util/');
 %%%%%%%%%%%%%%%%%%%%%%%% SETTINGS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 activation_type = 'tanh';
-learning_rate = 0.01;
-num_epochs =150;
-print_frequency = 1;
+learning_rate = 0.002;
+num_epochs = 600;
+print_frequency = 50;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 % create a crazy polynomial to learn
 
-% 1000 training examples, 20 features
-X_train = rand(1000,25);
+% 1000 training examples, 100 features
+X_train = rand(1000,100);
 
-% 5000 test examples, 20 features
-X_test = rand(5000,25);
+% 5000 test examples
+X_test = rand(5000,100);
 
 constants = rand(1, size(X_train,2));
 polynomial = randi([1 10],1, size(X_train,2));
