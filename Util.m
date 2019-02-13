@@ -1,5 +1,5 @@
 classdef Util
-    % a class to store methods
+    % a class to store random scripting methods
 
     properties (Constant)
 

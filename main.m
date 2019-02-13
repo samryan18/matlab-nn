@@ -1,4 +1,6 @@
 clear all; clc;
+addpath('./nn/');
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%% SETTINGS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -31,6 +33,8 @@ if isequal(activation_type, 'sigmoid')
     layers{2} = ActivationLayer.make_sigmoid_activation_layer();
 elseif isequal(activation_type, 'relu')
     layers{2} = ActivationLayer.make_relu_activation_layer();
+elseif isequal(activation_type, 'tanh')
+    layers{2} = ActivationLayer.make_tanh_activation_layer();
 end
 layers{3} = LinearLayer(num_nodes, 1, inits('w2'), inits('b2'));
 
