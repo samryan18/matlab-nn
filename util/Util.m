@@ -24,7 +24,7 @@ classdef Util
             xtickangle(310);
 
             grid on;
-            legend('Training Loss','Test Loss', 'Location', 'NorthWest');
+            legend('Training Loss','Test Loss');
             saveas(fig, strcat('figures/', my_title, '.png'));
         end
 
