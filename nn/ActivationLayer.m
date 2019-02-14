@@ -22,20 +22,21 @@ classdef ActivationLayer < handle % handle makes these objects pass by reference
         end
 
         function gradient = backward(activationLayer, gradient)
-            gradient = activationLayer.func_prime(activationLayer.inputs) .* gradient.';
+            gradient = activationLayer.func_prime(activationLayer.inputs) ...
+                            .* gradient.';
         end
     end
 
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     % methods for creating various types of activation function
 
     properties (Constant)
         % sigmoid activation functions
         sigmoid_activation = @(x) 1./(1.+exp(-x));
-        sigmoid_activation_prime = @(x) 1-(1./(1.+exp(-x)));
+        sigmoid_activation_prime = @(x) 1./(1.+exp(-x)).*(1-(1./(1.+exp(-x))));
 
         % ReLU activation functions
-        relu_activation_function = @(x) x.*(x>0);
+        relu_activation = @(x) x.*(x>0);
         relu_activation_prime = @(x) 1.*(x>0);
 
         % tanh activation functions
@@ -56,7 +57,7 @@ classdef ActivationLayer < handle % handle makes these objects pass by reference
         end
 
         function layer = make_relu_activation_layer()
-            layer = ActivationLayer(ActivationLayer.relu_activation_function, ...
+            layer = ActivationLayer(ActivationLayer.relu_activation, ...
                                     ActivationLayer.relu_activation_prime);
         end
     end

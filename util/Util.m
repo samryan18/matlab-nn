@@ -7,7 +7,8 @@ classdef Util
 
     methods (Static)
 
-        function plot_learning_curve(training_losses, test_losses, num_epochs, my_title)
+        function plot_learning_curve(training_losses, test_losses, ...
+                                     num_epochs, my_title)
             % X = 100*(1:num_epochs/100);
             X = (1:num_epochs);
             fig = figure;
@@ -27,8 +28,10 @@ classdef Util
             saveas(fig, strcat('figures/', my_title, '.png'));
         end
 
-        function [initializations] = load_weight_initializations(activation_type, ...
-                                                                 num_nodes, dataset_name)
+        function [initializations] = load_weight_initializations(...
+                                            activation_type, ...
+                                            num_nodes, ...
+                                            dataset_name)
             path = strcat('../../',dataset_name,'/');
             post = '.txt';
             % load weight initializations
@@ -36,7 +39,8 @@ classdef Util
 
             initializations = containers.Map;
 
-            pre = strcat(path, 'InitParams/', activation_path, num2str(num_nodes));
+            pre = strcat(path, 'InitParams/', activation_path, ...
+                         num2str(num_nodes));
 
             weight_initializations_path_1 = strcat(pre, '/w', num2str(1), post);
             bias_initializations_path_1 = strcat(pre, '/b', num2str(1), post);
@@ -48,7 +52,7 @@ classdef Util
             initializations('w2') = load(weight_initializations_path_2).';
             initializations('b2') = load(bias_initializations_path_2).';
         end
-
+        
         function data = load_data(filename, dataset_name)
             path = strcat('../../',dataset_name,'/');
             post = ('.txt');

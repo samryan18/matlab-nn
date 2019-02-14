@@ -1,15 +1,15 @@
 clear all; clc; addpath('./nn/'); addpath('./util/');
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%% SETTINGS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-dataset_name = 'Spam-Dataset';
-num_nodes = 25;
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% SETTINGS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+dataset_name = 'Synthetic-Dataset';
+num_nodes = 50;
 activation_type = 'sigmoid';
 learning_rate = 0.1;
 num_epochs = 8000;
 print_frequency = 500;
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % load data
 X_train = Util.load_data('X_train', dataset_name);
@@ -36,8 +36,10 @@ layers{3} = LinearLayer(num_nodes, 1);
 % create MLP
 nn = NN(layers, learning_rate);
 
-loss = Loss(ErrorFunctions.mean_squared_error, ...
-            ErrorFunctions.mean_squared_error_gradient);
+% loss = Loss(ErrorFunctions.mean_squared_error, ...
+%             ErrorFunctions.mean_squared_error_gradient);
+loss = Loss(ErrorFunctions.cross_entropy_loss, ...
+            ErrorFunctions.cross_entropy_loss_gradient);
 
 [final_loss, training_losses, test_losses] = train(nn, X_train, ...
                                                    y_train, num_epochs, ...
@@ -46,8 +48,8 @@ loss = Loss(ErrorFunctions.mean_squared_error, ...
 
 Util.plot_learning_curve(training_losses, test_losses, num_epochs, ...
                          strcat(activation_type, ': Learning Curve ', ...
-                         ' (1 layer, ', num2str(num_nodes), 'hidden neurons) ', ...
-                         '(', dataset_name, ')'));
+                         ' (1 layer, ', num2str(num_nodes), ...
+                         'hidden neurons) ', '(', dataset_name, ')'));
 
 y_hat_tr = predict(nn, X_train);
 y_hat_test = predict(nn, X_test);

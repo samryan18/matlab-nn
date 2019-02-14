@@ -38,7 +38,8 @@ classdef NN < handle % handle makes these objects pass by reference
                     key = k{i};
                     param = vals{i};
                     gradient = layer.gradients(key);
-                    layer.parameters(key) = param - (nn.learning_rate .* gradient.');
+                    layer.parameters(key) = param ...
+                                            - (nn.learning_rate .* gradient.');
                 end
             end
         end
