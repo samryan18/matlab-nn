@@ -6,17 +6,22 @@ Feed Forward MLP Library with Matlab
 * see `main.m` for more practical example (data not included)
 
 ### Available Loss Functions
-* Mean squared error
-* Cross entropy loss
+* Mean squared error: `@(y_hat,y) (1/size(y_hat,1)) * sum((y_hat-y).^2)`
+* Cross entropy loss: 
+```
+        @(y_hat,y) (1/size(y_hat,1)) * ...
+                sum(-(y .* log(y_hat)) ...
+                    - (1-y) .* log(1-y_hat))
+```
 
 Add custom loss functions in `ErrorFunctions.m`.
 
-### Available Activation Functions (see `ActivationLayer.m`)
+### Available Activation Functions
 * Tanh
 * ReLU
 * Sigmoid
 
-Add custom activation functions in `ErrorFunctions.m`.
+Add custom activation functions in `ActivationLayer.m`.
 
 ### Notes
 * requires Matlab R2016b or later
