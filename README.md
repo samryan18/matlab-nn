@@ -5,6 +5,19 @@ Feed Forward MLP Library with Matlab
 * `nn_regression_example.m` has example of fitting a 10 degree polynomial
 * see `main.m` for more practical example (data not included)
 
+### Available Loss Functions
+* Mean squared error
+* Cross entropy loss
+
+Add custom loss functions in `ErrorFunctions.m`.
+
+### Available Activation Functions (see `ActivationLayer.m`)
+* Tanh
+* ReLU
+* Sigmoid
+
+Add custom activation functions in `ErrorFunctions.m`.
+
 ### Notes
 * requires Matlab R2016b or later
 * also Matlab sux
