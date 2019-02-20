@@ -5,6 +5,8 @@ Feed Forward MLP Library with Matlab
 * `nn_regression_example.m` has example of fitting a 10 degree polynomial
 * see `main.m` for more practical example (data not included)
 
+---
+
 ### Available Loss Functions
 * Mean squared error: 
 ```
@@ -40,6 +42,8 @@ sigmoid_activation_prime = @(x) 1./(1.+exp(-x)).*(1-(1./(1.+exp(-x))));
 ```
 
 Add custom activation functions in `ActivationLayer.m`.
+
+---
 
 ### Notes
 * requires Matlab R2016b or later
