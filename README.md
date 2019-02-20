@@ -24,6 +24,8 @@ cross_entropy_loss_gradient = @(y_hat,y) (1/size(y_hat,1)) * (y_hat-y);
 
 Add custom loss functions in `ErrorFunctions.m`.
 
+---
+
 ### Available Activation Functions
 * Tanh
 ```

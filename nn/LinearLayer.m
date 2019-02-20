@@ -46,8 +46,6 @@ classdef LinearLayer < handle % handle makes these objects pass by reference
         function grad = backward(layer, gradient)
             layer.gradients('b') = sum(gradient).';
             layer.gradients('w') = gradient.' * layer.inputs;
-            % size(gradient)
-            % size(layer.parameters('w'))
             grad = (layer.parameters('w')) * gradient.';
         end
     end

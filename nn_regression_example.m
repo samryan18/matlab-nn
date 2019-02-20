@@ -44,7 +44,7 @@ layers{4} = ActivationLayer.make_tanh_activation_layer();
 layers{5} = LinearLayer(15, 1);
 
 % create MLP
-nn = NN(layers, learning_rate);
+nn = NN(layers, learning_rate, false);
 
 loss = Loss(ErrorFunctions.mean_squared_error, ...
             ErrorFunctions.mean_squared_error_gradient);

@@ -39,7 +39,6 @@ classdef ActivationLayer < handle % handle makes these objects pass by reference
         relu_activation_prime = @(x) 1.*(x>0);
 
         % tanh activation functions
-        % not needed in this hwk but was curious
         tanh_activation = @(x) tanh(x);
         tanh_activation_prime = @(x) 1-(tanh(x).^2);
     end
