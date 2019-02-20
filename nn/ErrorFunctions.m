@@ -8,11 +8,8 @@ classdef ErrorFunctions
                                          sum(-(y .* log(y_hat)) ...
                                              - (1-y) .* log(1-y_hat));
         cross_entropy_loss_gradient = @(y_hat,y) (1/size(y_hat,1)) * (y_hat-y);
-    end
-
-    methods (Static)
-        function err = classification_error(y, y_pred)
-            err = 1 - length(find(y_pred == y)) / length(y);
-        end
+        
+        classification_error = @(y_pred,y_true) ...
+                            1 - length(find(y_pred == y_true)) / length(y_true);
     end
 end

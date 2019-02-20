@@ -1,7 +1,8 @@
 # ~ Deep Learning ~
 Feed Forward MLP Library with Matlab
 
-* `nn_regression.m` has example of fitting a 10 degree polynomial
+* see `nn/` for library code
+* `nn_regression_example.m` has example of fitting a 10 degree polynomial
 * see `main.m` for more practical example (data not included)
 
 ### Notes
