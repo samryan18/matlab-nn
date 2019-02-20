@@ -11,9 +11,11 @@ function [final_loss, training_losses, test_losses] = ...
                                 )
     training_losses = [];
     test_losses = [];
+
     for epoch = 1:num_epochs
         y_hat = net.forward(X);
         epoch_loss = loss.func(y_hat, y);
+
         grad = loss.derivative(y_hat, y);
         net.backward(grad);
         net.step();  

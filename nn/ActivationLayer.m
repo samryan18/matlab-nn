@@ -13,7 +13,6 @@ classdef ActivationLayer < handle % handle makes these objects pass by reference
             activationLayer.gradients = containers.Map; % empty no parameters
             activationLayer.func = func;
             activationLayer.func_prime = func_prime;
-
         end
 
         function output = forward(activationLayer, inputs)

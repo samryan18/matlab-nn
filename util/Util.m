@@ -32,15 +32,17 @@ classdef Util
                                             activation_type, ...
                                             num_nodes, ...
                                             dataset_name)
-            path = strcat('../../',dataset_name,'/');
+            path = strcat('../',dataset_name,'/');
             post = '.txt';
             % load weight initializations
-            activation_path = strcat(activation_type, '/');
+            activation_path = '';
 
             initializations = containers.Map;
 
-            pre = strcat(path, 'InitParams/', activation_path, ...
-                         num2str(num_nodes));
+            % pre = strcat(path, 'InitParams/', activation_path, ...
+            %              num2str(num_nodes));
+            pre = strcat(path, 'InitParams/', num2str(num_nodes),...
+                         '/', activation_path);
 
             weight_initializations_path_1 = strcat(pre, '/w', num2str(1), post);
             bias_initializations_path_1 = strcat(pre, '/b', num2str(1), post);
@@ -54,7 +56,8 @@ classdef Util
         end
         
         function data = load_data(filename, dataset_name)
-            path = strcat('../../',dataset_name,'/');
+
+            path = strcat('../',dataset_name,'/');
             post = ('.txt');
             full_path = strcat(path, filename, post);
             data = load(full_path);

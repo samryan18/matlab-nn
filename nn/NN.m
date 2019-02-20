@@ -2,12 +2,18 @@ classdef NN < handle % handle makes these objects pass by reference
     properties (SetAccess = private)
         layers
         learning_rate
+        squash_output
     end
     
     methods
-        function nn = NN(layers, learning_rate)
+        function nn = NN(layers, learning_rate, ...
+                         squash_output ... % OPTIONAL PARAM: Default = True
+                         )
             nn.layers = layers;
             nn.learning_rate = learning_rate;
+            if ~exist('squash_output','var')
+                nn.squash_output = true;
+            end
         end
 
         function output = forward(nn, inputs)
@@ -18,7 +24,9 @@ classdef NN < handle % handle makes these objects pass by reference
 
             % squash output
             % can customize this in the future (e.g. softmax)
-            output = ActivationLayer.sigmoid_activation(output);
+            if nn.squash_output
+                output = ActivationLayer.sigmoid_activation(output);
+            end
         end
 
         function gradient = backward(nn, gradient)
@@ -43,6 +51,5 @@ classdef NN < handle % handle makes these objects pass by reference
                 end
             end
         end
-
     end
 end
