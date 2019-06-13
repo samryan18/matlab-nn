@@ -2,8 +2,8 @@
 Feed Forward MLP Library with Matlab
 
 * see `nn/` for library code
-* `nn_regression_example.m` has example of fitting a 10 degree polynomial
-* see `main.m` for more practical example (data not included)
+* see `nn_regression_example.m` for an example of fitting a 10 degree polynomial
+* see `nn_classification_example.m` for more practical example (data not included)
 
 ---
 
@@ -22,7 +22,7 @@ cross_entropy_loss = @(y_hat,y) (1/size(y_hat,1)) * ...
 cross_entropy_loss_gradient = @(y_hat,y) (1/size(y_hat,1)) * (y_hat-y);
 ```
 
-Add custom loss functions in `ErrorFunctions.m`.
+Add custom loss functions in `nn/ErrorFunctions.m`.
 
 ---
 
@@ -43,7 +43,7 @@ sigmoid_activation = @(x) 1./(1.+exp(-x));
 sigmoid_activation_prime = @(x) 1./(1.+exp(-x)).*(1-(1./(1.+exp(-x))));
 ```
 
-Add custom activation functions in `ActivationLayer.m`.
+Add custom activation functions in `nn/ActivationLayer.m`.
 
 ---
 
