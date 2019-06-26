@@ -51,7 +51,7 @@ Add custom activation functions in `nn/ActivationLayer.m`.
 * requires Matlab R2016b or later
 * also Matlab sux
 
-### How to write Matlab code in a text editor and run in a terminal shell
+### How to write Matlab code in a text editor and run in a terminal shell (OSX)
 
 Add these lines to your `.bash_profile` or `.zshrc`:
 ```

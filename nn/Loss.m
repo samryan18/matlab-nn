@@ -1,4 +1,9 @@
-classdef Loss < handle % handle makes these objects pass by reference
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Author: Samuel Ryan
+% Date: February 2019
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+lassdef Loss < handle % handle makes these objects pass by reference
     properties (SetAccess = public)
         func
         derivative
