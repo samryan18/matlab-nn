@@ -3,7 +3,7 @@
 % Date: February 2019
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-lassdef Loss < handle % handle makes these objects pass by reference
+classdef Loss < handle % handle makes these objects pass by reference
     properties (SetAccess = public)
         func
         derivative
