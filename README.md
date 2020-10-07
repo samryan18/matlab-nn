@@ -1,9 +1,10 @@
 # ~ Deep Learning ~
-Feed Forward MLP Library with Matlab
+Feed Forward MLP Library with Matlab. Written for readability not performance.
 
-* see `nn/` for library code
-* see `nn_regression_example.m` for an example of fitting a 10 degree polynomial
-* see `nn_classification_example.m` for more practical example (data not included)
+
+### Directory Structure
+* `nn/`: library code
+* `examples/`: examples of NN classification and regression using the lib
 
 ---
 
