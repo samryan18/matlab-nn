@@ -4,6 +4,7 @@ Feed Forward MLP Library with Matlab. Written for readability not performance.
 
 ### Directory Structure
 * `nn/`: library code
+* `util/`: scrappy utility functions for plotting, weight initialization, etc.
 * `examples/`: examples of NN classification and regression using the lib
 
 ---
