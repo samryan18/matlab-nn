@@ -4,8 +4,7 @@ Feed Forward MLP Library with Matlab. Written for readability not performance.
 
 ### Directory Structure
 * `nn/`: library code
-* `./nn_regression_example.m`: quick example of fitting a 10 degree polynomial
-* `./nn_classification_example.m`:x quick classification example (data not included)
+* `examples/`: examples of NN classification and regression using the lib
 
 ---
 
